@@ -2,6 +2,7 @@
 #Web Tech
 #February 6, 2016
 #Ibrahim 50% of work & Ricky 50% of work
+
 import random, string, time
 
 def wrap(HTMLtype, ABCDE):
