@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="HW2.css"/>
+
+  </head>
+
+  <body>
+
+    <!-- 
+      Contribution:
+      Ibra = 50%
+      CIW = 50%
+    -->
+
+    <h1>The Multiplication Table Challenge</h1>
+
+    <p>Size:
+    <input id="numb">
+    <button type="button" onclick="get_value()">CREATE TABLE</button>
+    </p>
+
+    <p id="demo"></p>
+    <p id="timer"></p>
+    <script type="text/javascript">
+    var sec = 0;
+    function create_table(num){
+      var info= "<th></th>";
+      for (var m = 1; m <=num; m++) {
+        info+="<th>"+m+"</th>";
+      }
+      info="<tr>"+info+"</tr>";
+      for (var i = 1; i <=num; i++){
+        info+="<th>"+i+"</th>";
+        for (var j = 1; j<=num; j++){
+            if ((i+j)%2 ==0) {
+                console.log("uno");
+               info+="<td class=\"uno\">"+j*i+"</td>";
+            }else{
+                console.log("dos");
+               info+="<td class=\"dos\">"+j*i+"</td>";
+            }
+        }
+        info="<tr>"+info+"</tr>";
+      }
+      info="<table align='center'>"+info+"</table>";
+    document.getElementById("demo").innerHTML = info;
+    }
+    function f_timer(){
+        document.getElementById("timer").innerHTML = ""+sec+" SECONDS LEFT";
+        sec-=1;
+        if (sec >=0){
+          setTimeout(f_timer,1000);
+        }else{
+          document.getElementById("demo").innerHTML = "";
+          document.getElementById("timer").innerHTML = "";
+        }
+    }
+    function get_value(){
+      var x, text;
+      // Get the value of the input field with id="numb"
+      x = document.getElementById("numb").value;
+      // If x is Not a Number or less than one or greater than 25
+      if (isNaN(x) || x < 1 || x > 25 || x =="") {
+        text = "Invalid Input: Please enter a number between 1 and 25";
+        document.getElementById("demo").innerHTML = text;
+      }
+      else {
+        create_table(x);
+        sec = 2*x;
+        f_timer();
+      }
+    }
+    </script>
+
+  </body>
+</html>

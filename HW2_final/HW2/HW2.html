@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="HW2.css"/>
+
+  </head>
+
+  <body>
+
+    <h1>The Multiplication Table Challenge</h1>
+
+    <p>Size:
+    <input id="numb">
+    <button type="button" onclick="get_value()">CREATE TABLE</button>
+    </p>
+
+    <p id="demo"></p>
+    <script type="text/javascript">
+    function create_table(num){
+      var info= "";
+      //var info2="";
+      for (var i = 1; i <=num; i++){
+        for (var j = 1; j<=num; j++){
+           info=info+"<td></td>"+"<td>"+j*i+"</td>";
+        }
+        //info2=info2+"<td>"+i+"</td>"
+        info="<tr>"+info+"</tr>";
+      }
+      info="<table align='center'>"+info+"</table>";
+    document.getElementById("demo").innerHTML = info;
+    }
+    function get_value(){
+      var x, text;
+      // Get the value of the input field with id="numb"
+      x = document.getElementById("numb").value;
+      // If x is Not a Number or less than one or greater than 25
+      if (isNaN(x) || x < 1 || x > 25 || x =="") {
+        text = "Invalid Input: Please enter a number between 1 and 25";
+        document.getElementById("demo").innerHTML = text;
+      }
+      else {
+        create_table(x);
+      }
+    }
+    </script>
+
+  </body>
+</html>

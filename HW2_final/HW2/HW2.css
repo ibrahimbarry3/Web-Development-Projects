@@ -1,0 +1,24 @@
+body{
+    background: FloralWhite;
+    margin: 30px;
+}
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+table{
+    table-layout: fixed;
+    font-family:Verdana, sans-serif;
+    border: 2px solid green;
+    border-collapse:collapse;
+    text-align:center;
+}
+td{
+  font-size:18px;
+  padding:5px;
+  font-family:Verdana, sans-serif;
+  color:blue;
+  border:2px solid green;
+}
